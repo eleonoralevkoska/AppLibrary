@@ -1,0 +1,37 @@
+﻿@model AppLibrary.DtoModels.BookCopies;
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div>
+    <h4>Book copies details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Library.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Library.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Book.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfCopies)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfCopies)
+        </dd>
+    </dl>
+</div>
+

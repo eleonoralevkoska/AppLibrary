@@ -1,0 +1,39 @@
+﻿@model IEnumerable<AppLibrary.DtoModels.Client>;
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<a class="btn btn-success mt-5" style="margin: 10px" asp-controller="Client" asp-action="Create">Create new client</a>
+
+<table class="table table-striped table-hover ">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>City</th>
+            <th>Edit</th>
+            <th>Details</th>
+            <th>Delete</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var client in Model)
+        {
+        <tr>
+            <td>@client.Name</td>
+            <td>@client.Phone</td>
+            <td>@client.Address</td>
+            <td>@client.City</td>
+            <td>@client.Email</td>
+            <td><a class="btn btn-info" asp-area="" asp-controller="Client" asp-action="Update" asp-route-id="@client.Id">Edit</a></td>
+            <td><a class="btn btn-info" asp-area="" asp-controller="Client" asp-action="Details" asp-route-id="@client.Id">Details</a></td>
+            <td><a class="btn btn-danger" asp-area="" asp-controller="Client" asp-action="Delete" asp-route-id="@client.Id">Delete</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
+

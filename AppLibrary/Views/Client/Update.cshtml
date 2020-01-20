@@ -1,0 +1,46 @@
+﻿@model ClientViewModel;
+@{
+    ViewData["Title"] = "Update";
+}
+
+
+<div class="row orderForm">
+    <form asp-controller="Client" asp-action="Update" method="post" class="form-horizontal" role="form">
+        <h3 class="col-md-offset-2">Update library</h3>
+        @Html.HiddenFor(m => Model.Client.Id)
+        <div class="form-group">
+            <label asp-for="Client.Name" class="col-md-2 control-label"></label>
+            <div class="col-md-6">
+                <input asp-for="Client.Name" class="form-control" placeholder="Enter library name" />
+                <span asp-validation-for="Client.Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Client.Phone" class="col-md-2 control-label"></label>
+            <div class="col-md-6">
+                <input asp-for="Client.Phone" class="form-control" placeholder="Enter address" />
+                <span asp-validation-for="Client.Phone" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Client.Address" class="col-md-2 control-label"></label>
+            <div class="col-md-6">
+                <input asp-for="Client.Address" class="form-control" placeholder="Enter address" />
+                <span asp-validation-for="Client.Address" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Client.City" class="col-md-2 control-label"></label>
+            <div class="col-md-6">
+                <input asp-for="Client.City" class="form-control" placeholder="Enter library country" />
+                <span asp-validation-for="Client.City" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="btn-group col-md-offset-2 col-md-6">
+                <input class="btn btn-default" type="submit" value="Return" asp-controller="Client" asp-action="Index" />
+                <input class="btn btn-success" type="submit" value="Update" />
+            </div>
+        </div>
+    </form>
+</div>

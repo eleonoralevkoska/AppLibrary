@@ -1,0 +1,42 @@
+﻿@using System.Globalization
+@using System.Security.Claims
+@model IEnumerable<AppLibrary.DtoModels.Book>;
+@{
+    ViewData["Title"] = "Index";
+    var client = Context.User;
+    var isLoggedIn = client.FindFirst(ClaimTypes.Name) != null;
+    var isAdmin = isLoggedIn && Context.User.HasClaim(ClaimTypes.Role, "Administrator");
+}
+
+
+    <a class="btn btn-success mt-5" style="margin: 10px" asp-controller="Book" asp-action="Create">Create new book</a>
+
+    <table class="table table-striped table-hover ">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Number of copies</th>
+                <th>Year of Issue</th>
+                <th>Publisher</th>
+                <th>Edit</th>
+                <th>Details</th>
+                <th>Delete</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <td>@book.Title</td>
+                    <td>@book.NumberOfPages</td>
+                    <td>@book.YearOfIssue</td>
+                    <td>@book.Publisher.Name</td>
+                    <td><a class="btn btn-info" asp-area="" asp-controller="Book" asp-action="Update" asp-route-id="@book.Id">Edit</a></td>
+                    <td><a class="btn btn-info" asp-area="" asp-controller="Book" asp-action="Details" asp-route-id="@book.Id">Details</a></td>
+                    <td><a class="btn btn-danger" asp-area="" asp-controller="Book" asp-action="Delete" asp-route-id="@book.Id">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+

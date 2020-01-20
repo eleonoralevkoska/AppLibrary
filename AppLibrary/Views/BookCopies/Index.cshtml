@@ -1,0 +1,34 @@
+﻿@model IEnumerable<AppLibrary.DtoModels.BookCopies>;
+@{
+    ViewData["Title"] = "Index";
+}
+
+<a class="btn btn-success mt-5" style="margin: 10px" asp-controller="BookCopies" asp-action="Create">Create new book copies</a>
+
+<table class="table table-striped table-hover ">
+    <thead>
+        <tr>
+            <th>Book name</th>
+            <th>Number of copies</th>
+            <th>Library name</th>
+            <th>Edit</th>
+            <th>Details</th>
+            <th>Delete</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bookCopies in Model)
+        {
+            <tr>
+                <td>@bookCopies.Book.Title</td>
+                <td>@bookCopies.NumberOfCopies</td>
+                <td>@bookCopies.Library.Name</td>
+                <td><a class="btn btn-info" asp-area="" asp-controller="BookCopies" asp-action="Update" asp-route-id="@bookCopies.Id">Edit</a></td>
+                <td><a class="btn btn-info" asp-area="" asp-controller="BookCopies" asp-action="Details" asp-route-id="@bookCopies.Id">Details</a></td>
+                <td><a class="btn btn-danger" asp-area="" asp-controller="BookCopies" asp-action="Delete" asp-route-id="@bookCopies.Id">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+

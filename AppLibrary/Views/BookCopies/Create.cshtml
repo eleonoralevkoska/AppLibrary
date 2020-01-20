@@ -1,0 +1,55 @@
+﻿@model BookCopiesViewModel;
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="row orderForm">
+    <div class="col-md-6">
+        <form asp-controller="BookCopies" asp-action="Create" method="post" class="form-horizontal" role="form">
+            <h3 class="col-md-offset-2">Create new book</h3>
+            <div class="form-group">
+                <label asp-for="BookCopies.Library" class="col-md-2 control-label">Select library</label>
+                <div class="col-md-4">
+                    @Html.DropDownListFor(m => m.BookCopies.LibraryId,
+                                           new SelectList(Model.Libraries.Select(x => new { Value = x.Id, Text = x.Name }), "Value", "Text"), "Select a library",
+                                           htmlAttributes: new { @class = "form-control border-input" })
+                    <span asp-validation-for="BookCopies.Library" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-2">
+                    <a class="btn btn-success" asp-controller="Library" asp-action="Create">Create a library</a>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="BookCopies.Book" class="col-md-2 control-label">Select book</label>
+                <div class="col-md-4">
+                    @Html.DropDownListFor(m => m.BookCopies.BookId,
+                                           new SelectList(Model.Books.Select(x => new { Value = x.Id, Text = x.Title }), "Value", "Text"), "Select a book",
+                                           htmlAttributes: new { @class = "form-control border-input" })
+                    <span asp-validation-for="BookCopies.Book" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-2">
+                    <a class="btn btn-success" asp-controller="Book" asp-action="Create">Create a book</a>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="BookCopies.NumberOfCopies" class="col-md-2 control-label">Number of copies</label>
+                <div class="col-md-6">
+                    <input asp-for="BookCopies.NumberOfCopies" class="form-control" placeholder="Enter number of copies" />
+                    <span asp-validation-for="BookCopies.NumberOfCopies" class="text-danger"></span>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="btn-group col-md-offset-2 col-md-6">
+                    <input class="btn btn-info" type="submit" value="Return" asp-controller="BookCopies" asp-action="Index" />
+                    <input class="btn btn-success" type="submit" value="Create" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

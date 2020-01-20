@@ -1,0 +1,39 @@
+﻿@model LibraryViewModel;
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="row orderForm">
+    <form asp-controller="Library" asp-action="Create" method="post" class="form-horizontal" role="form">
+        <h3 class="col-md-offset-2">Create new library</h3>
+        <div class="form-group">
+            <label asp-for="Library.Name" class="col-md-2 control-label"></label>
+            <div class="col-md-6">
+                <input asp-for="Library.Name" class="form-control" placeholder="Enter library name" />
+                <span asp-validation-for="Library.Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Library.Address" class="col-md-2 control-label"></label>
+            <div class="col-md-6">
+                <input asp-for="Library.Address" class="form-control" placeholder="Enter address" />
+                <span asp-validation-for="Library.Address" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Library.City" class="col-md-2 control-label"></label>
+            <div class="col-md-6">
+                <input asp-for="Library.City" class="form-control" placeholder="Enter city" />
+                <span asp-validation-for="Library.City" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="btn-group col-md-offset-2 col-md-6">
+                <input class="btn btn-info" type="submit" value="Return" asp-controller="Library" asp-action="Index" />
+                <input class="btn btn-success" type="submit" value="Create" />
+            </div>
+        </div>
+    </form>
+</div>
+

@@ -1,0 +1,59 @@
+﻿@model ClientViewModel;
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="row orderForm">
+    <form asp-controller="Client" asp-action="Create" method="post" class="form-horizontal" role="form">
+        <h3 class="col-md-offset-2">Create new library</h3>
+        <div class="form-group">
+            <label asp-for="Client.Name" class="col-md-2 control-label"></label>
+            <div class="col-md-6">
+                <input asp-for="Client.Name" class="form-control" placeholder="Enter client name" />
+                <span asp-validation-for="Client.Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Client.Phone" class="col-md-2 control-label"></label>
+            <div class="col-md-6">
+                <input asp-for="Client.Phone" class="form-control" placeholder="Enter phone" />
+                <span asp-validation-for="Client.Phone" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Client.Address" class="col-md-2 control-label"></label>
+            <div class="col-md-6">
+                <input asp-for="Client.Address" class="form-control" placeholder="Enter address" />
+                <span asp-validation-for="Client.Address" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Client.City" class="col-md-2 control-label"></label>
+            <div class="col-md-6">
+                <input asp-for="Client.City" class="form-control" placeholder="Enter city" />
+                <span asp-validation-for="Client.City" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Client.Email" class="col-md-2 control-label"></label>
+            <div class="col-md-6">
+                <input asp-for="Client.Email" class="form-control" placeholder="Enter email" />
+                <span asp-validation-for="Client.Email" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Client.Password" class="col-md-2 control-label"></label>
+            <div class="col-md-6">
+                <input asp-for="Client.Password" class="form-control" placeholder="Enter password" />
+                <span asp-validation-for="Client.Password" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="btn-group col-md-offset-2 col-md-6">
+                <input class="btn btn-info" type="submit" value="Return" asp-controller="Client" asp-action="Index" />
+                <input class="btn btn-success" type="submit" value="Create" />
+            </div>
+        </div>
+    </form>
+</div>
